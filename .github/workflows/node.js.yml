@@ -2,45 +2,35 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v4
-      
-      - name: List files in GitHub workspace
-        run: ls -la ${{ github.workspace }}
-
+      - name: List files in the work directory
+        run: ls -la /home/runner/work/react-github-actions/react-github-actions
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: |
-            ${{ github.workspace }}/package-lock.json
-            ${{ github.workspace }}/npm-shrinkwrap.json
-            ${{ github.workspace }}/yarn.lock
-
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-
       - uses: awact/s3-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
-          SOURCE_DIR: './build'
-          AWS_REGION: 'ap-northeast-2'
+          SOURCE_DIR: "./build"
+          AWS_REGION: "ap-northeast-2"
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
