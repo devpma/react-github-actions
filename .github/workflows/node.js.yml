@@ -12,10 +12,12 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: List files in the work directory
         run: ls -la
@@ -30,11 +32,17 @@ jobs:
             npm-shrinkwrap.json
             yarn.lock
 
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+      - name: Install dependencies
+        run: npm ci
 
-      - uses: awact/s3-action@master
+      - name: Build the project
+        run: npm run build --if-present
+
+      - name: Run tests
+        run: npm test
+
+      - name: Deploy to S3
+        uses: awact/s3-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
