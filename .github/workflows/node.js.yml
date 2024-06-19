@@ -24,6 +24,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
           cache-dependency-path: package-lock.json
+          cache-key: ${{ runner.os }}-node-${{ matrix.node-version }}-new-cache-key
+
+      - name: Clear node_modules
+        run: |
+          rm -rf node_modules
 
       - name: List files in the work directory
         run: ls -la /home/runner/work/react-github-actions/react-github-actions
@@ -33,7 +38,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci --loglevel verbose > npm-install.log 2>&1
+          npm install --loglevel verbose > npm-install.log 2>&1
           cat npm-install.log
 
       - name: Display npm install logs
