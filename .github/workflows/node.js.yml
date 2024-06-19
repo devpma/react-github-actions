@@ -25,13 +25,13 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean --force
 
-      - name: Create local home directory
-        run: mkdir -p ${{ github.workspace }}/home
+      - name: Create temporary home directory
+        run: mkdir -p /tmp/npm-home
 
       - name: Set npm cache and prefix
         run: |
-          npm config set cache ${{ github.workspace }}/home/npm-cache --global
-          npm config set prefix ${{ github.workspace }}/home/npm-global --global
+          npm config set cache /tmp/npm-home/npm-cache --global
+          npm config set prefix /tmp/npm-home/npm-global --global
 
       - name: Ensure AWS CLI is removed
         run: |
@@ -50,20 +50,20 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/home/npm-cache
+          path: /tmp/npm-home/npm-cache
           key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
         env:
-          HOME: ${{ github.workspace }}/home
+          HOME: /tmp/npm-home
 
       - name: Install web-vitals
         run: npm install web-vitals --save --legacy-peer-deps
         env:
-          HOME: ${{ github.workspace }}/home
+          HOME: /tmp/npm-home
 
       - name: Set environment variable
         run: echo "NODE_ENV=test" >> $GITHUB_ENV
@@ -71,18 +71,18 @@ jobs:
       - name: Run tests
         run: npx jest
         env:
-          HOME: ${{ github.workspace }}/home
+          HOME: /tmp/npm-home
 
       - name: Build the project
         run: npm run build
         env:
           NODE_OPTIONS: --openssl-legacy-provider
-          HOME: ${{ github.workspace }}/home
+          HOME: /tmp/npm-home
 
       - name: List build directory contents
         run: ls -la ./build
         env:
-          HOME: ${{ github.workspace }}/home
+          HOME: /tmp/npm-home
 
       - name: Deploy to S3
         run: aws s3 sync ./build s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --delete
@@ -90,4 +90,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "ap-northeast-2"
-          HOME: ${{ github.workspace }}/home
+          HOME: /tmp/npm-home
