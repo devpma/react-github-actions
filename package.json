@@ -9,14 +9,14 @@
     "build": "webpack"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^11.2.7",
-    "jest": "^27.4.5",
-    "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "jest": "^29.7.0",
+    "webpack": "^5.92.0",
+    "webpack-cli": "^5.1.4"
   }
 }
