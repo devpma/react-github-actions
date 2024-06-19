@@ -9,9 +9,13 @@
     "@babel/preset-react": "^7.18.6",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
+    "babel-jest": "^29.7.0",
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "cssstyle": "^4.0.1"
   }
 }

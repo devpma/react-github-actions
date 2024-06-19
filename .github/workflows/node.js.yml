@@ -39,11 +39,11 @@ jobs:
       - name: Set environment variable
         run: echo "NODE_ENV=test" >> $GITHUB_ENV
 
+      - name: Run tests
+        run: npx jest
+
       - name: Build the project
         run: npm run build --if-present
-
-      - name: Run tests
-        run: npm test
 
       - name: Deploy to S3
         uses: awact/s3-action@master
