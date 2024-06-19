@@ -23,27 +23,25 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-          cache-dependency-path: |
-            package-lock.json
-            npm-shrinkwrap.json
-            yarn.lock
+
+      - name: Install specific dependencies
+        run: |
+          npm install @testing-library/jest-dom@latest --save-dev
+          npm install @testing-library/react@latest --save-dev
+          npm install jest@latest --save-dev
+          npm install webpack@latest --save-dev
+          npm install webpack-cli@latest --save-dev
 
       - name: List files in the work directory
         run: ls -la /home/runner/work/react-github-actions/react-github-actions
-      - name: List files in the work directory
-        run: ls -la /home/runner/work/react-github-actions/react-github-actions
-
-      - name: Show Node.js version
-        run: node -v
-
-      - name: Show npm version
-        run: npm -v
 
       - name: Install dependencies
-        run: npm install --loglevel=verbose
+        run: npm ci --loglevel verbose > npm-install.log 2>&1
+        continue-on-error: true
 
-      - name: Update npm to latest version
-        run: npm install -g npm@latest
+      - name: Display npm install logs
+        run: cat npm-install.log
+
       - name: Build the project
         run: npm run build --if-present
 
