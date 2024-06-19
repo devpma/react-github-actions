@@ -23,7 +23,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-          cache-dependency-path: package-lock.json
 
       - name: Cache node modules
         uses: actions/cache@v2
@@ -43,12 +42,14 @@ jobs:
         run: npx jest
 
       - name: Build the project
-        run: npm run build --if-present
+        run: npm run build
+
+      - name: List build directory contents
+        run: ls -la ./build
 
       - name: Deploy to S3
-        uses: awact/s3-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete
+        run: aws s3 sync ./build s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --delete
         env:
-          SOURCE_DIR: "./build"
-          AWS_REGION: "ap-northeast-2
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "ap-northeast-2"
