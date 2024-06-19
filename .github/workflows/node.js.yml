@@ -16,15 +16,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: List files in the work directory
-        run: ls -la /home/runner/work/react-github-actions/react-github-actions
+        run: ls -la
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: |
+            package-lock.json
+            npm-shrinkwrap.json
+            yarn.lock
+
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
+
       - uses: awact/s3-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
