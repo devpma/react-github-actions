@@ -25,13 +25,17 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean --force
 
-      - name: Create temporary home directory
-        run: mkdir -p /tmp/npm-home
+      - name: Set npm registry
+        run: npm config set registry https://registry.npmjs.org/
 
-      - name: Set npm cache and prefix
-        run: |
-          npm config set cache /tmp/npm-home/npm-cache --global
-          npm config set prefix /tmp/npm-home/npm-global --global
+      - name: Create npm global directory
+        run: mkdir -p ~/.npm-global
+
+      - name: Set npm global prefix
+        run: npm config set prefix '~/.npm-global'
+
+      - name: Update PATH
+        run: echo 'export PATH=$HOME/.npm-global/bin:$PATH' >> $GITHUB_ENV
 
       - name: Ensure AWS CLI is removed
         run: |
@@ -50,39 +54,30 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v2
         with:
-          path: /tmp/npm-home/npm-cache
+          path: ~/.npm-global
           key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
-        env:
-          HOME: /tmp/npm-home
+        run: npm install --legacy-peer-deps --force
 
-      - name: Install web-vitals
-        run: npm install web-vitals --save --legacy-peer-deps
-        env:
-          HOME: /tmp/npm-home
+      - name: Install testing library
+        run: npm install --save-dev @testing-library/react @testing-library/dom @testing-library/jest-dom jest --force
 
       - name: Set environment variable
         run: echo "NODE_ENV=test" >> $GITHUB_ENV
 
       - name: Run tests
-        run: npx jest
-        env:
-          HOME: /tmp/npm-home
+        run: npm test
 
       - name: Build the project
         run: npm run build
         env:
           NODE_OPTIONS: --openssl-legacy-provider
-          HOME: /tmp/npm-home
 
       - name: List build directory contents
         run: ls -la ./build
-        env:
-          HOME: /tmp/npm-home
 
       - name: Deploy to S3
         run: aws s3 sync ./build s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --delete
@@ -90,4 +85,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "ap-northeast-2"
-          HOME: /tmp/npm-home
