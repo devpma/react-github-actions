@@ -14,13 +14,14 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v4
       - name: List files
         run: ls -la
       - name: List files in the work directory
-        run: ls -la ${{ github.workspace }}
+        run: ls -la /home/runner/work/react-github-actions/react-github-actions
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
