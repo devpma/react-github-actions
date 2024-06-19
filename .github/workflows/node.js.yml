@@ -7,63 +7,88 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-    strategy:
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: "16"
+
+    - name: Remove existing AWS CLI
+      run: |
+        sudo rm -rf /usr/local/aws-cli
+        sudo rm /usr/local/bin/aws
+
+    - name: Install AWS CLI
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install --update
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
+      strategy:
       matrix:
         node-version: [18.x]
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+        - name: Use Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v3
+          with:
+            node-version: ${{ matrix.node-version }}
+            cache: "npm"
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
+        - name: Cache node modules
+          uses: actions/cache@v2
+          with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-node-${{ matrix.node-version }}-
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-
+        - name: Delete package-lock.json
+          run: rm -f package-lock.json
 
-      - name: Delete package-lock.json
-        run: rm -f package-lock.json
+        - name: Install dependencies
+          run: npm install
 
-      - name: Install dependencies
-        run: npm install
+        - name: Install web-vitals
+          run: npm install web-vitals --save
 
-      - name: Install web-vitals
-        run: npm install web-vitals --save
+        - name: Set environment variable
+          run: echo "NODE_ENV=test" >> $GITHUB_ENV
 
-      - name: Set environment variable
-        run: echo "NODE_ENV=test" >> $GITHUB_ENV
+        - name: Run tests
+          run: npx jest
 
-      - name: Run tests
-        run: npx jest
+        - name: Build the project
+          run: npm run build
 
-      - name: Build the project
-        run: npm run build
+        - name: List build directory contents
+          run: ls -la ./build
 
-      - name: List build directory contents
-        run: ls -la ./build
+        - name: Install AWS CLI
+          run: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
 
-      - name: Install AWS CLI
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-
-      - name: Deploy to S3
-        run: aws s3 sync ./build s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --delete
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "ap-northeast-2"
-      - name: Build project
-        run: npm run build | tee build.log
+        - name: Deploy to S3
+          run: aws s3 sync ./build s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --delete
+          env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION: "ap-northeast-2"
+        - name: Build project
+          run: npm run build | tee build.log
