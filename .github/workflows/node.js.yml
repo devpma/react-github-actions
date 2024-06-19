@@ -22,23 +22,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Remove existing AWS CLI
+      - name: Ensure AWS CLI is not installed
         run: |
-          if [ -d "/usr/local/aws-cli" ]; then
-            sudo rm -rf /usr/local/aws-cli
-          fi
-          if [ -f "/usr/local/bin/aws" ]; then
-            sudo rm /usr/local/bin/aws
-          fi
-          if [ -d "$HOME/.aws" ]; then
-            rm -rf $HOME/.aws
-          fi
+          sudo rm -rf /usr/local/aws-cli
+          sudo rm -f /usr/local/bin/aws
+          sudo rm -rf /usr/local/aws-cli/v2/current
 
       - name: Install AWS CLI
         run: |
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
-          sudo ./aws/install --update
+          sudo ./aws/install
 
       - name: Cache node modules
         uses: actions/cache@v2
