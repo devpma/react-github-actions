@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -19,7 +20,7 @@ jobs:
       - name: List files
         run: ls -la
       - name: List files in the work directory
-        run: ls -la /home/runner/work/react-github-actions/react-github-actions
+        run: ls -la ${{ github.workspace }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
