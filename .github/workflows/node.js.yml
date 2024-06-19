@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout repository
@@ -45,7 +45,7 @@ jobs:
             ${{ runner.os }}-node-${{ matrix.node-version }}-
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install web-vitals
         run: npm install web-vitals --save
