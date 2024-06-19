@@ -1,13 +1,10 @@
-# 이 워크플로는 Node.js 종속성을 깨끗하게 설치하고, 캐시/복원하고, 소스 코드를 빌드하고, 다양한 Node.js 버전에서 테스트를 실행합니다.
-# 자세한 정보는 다음을 참조하세요: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   pull_request:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,35 +13,27 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
-        # 지원되는 Node.js 릴리스 일정은 https://nodejs.org/en/about/releases/에서 확인하세요.
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
-          cache-dependency-path: ./package-lock.json
-
-      - name: Check directory structure
-        run: |
-          pwd
-          ls -la
-
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            npm-shrinkwrap.json
+            yarn.lock
       - run: npm ci
-
       - run: npm run build --if-present
-
       - run: npm test
-
       - uses: awact/s3-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
-          SOURCE_DIR: "./build"
-          AWS_REGION: "ap-northeast-2"
+          SOURCE_DIR: './build'
+          AWS_REGION: 'ap-northeast-2'
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
