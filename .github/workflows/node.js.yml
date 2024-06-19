@@ -17,12 +17,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: List files in root directory
-        run: ls -la /
+      
       - name: List files in GitHub workspace
         run: ls -la ${{ github.workspace }}
-      - name: List files in project directory
-        run: ls -la ${{ github.workspace }}/react-github-actions
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -30,9 +27,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: |
-            package-lock.json
-            npm-shrinkwrap.json
-            yarn.lock
+            ${{ github.workspace }}/package-lock.json
+            ${{ github.workspace }}/npm-shrinkwrap.json
+            ${{ github.workspace }}/yarn.lock
 
       - run: npm ci
       - run: npm run build --if-present
