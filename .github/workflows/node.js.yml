@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [16.x, 18.x]
 
     steps:
       - name: Checkout repository
@@ -22,11 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Create home directory
-        run: mkdir -p /home/runner
-
-      - name: Set HOME environment variable
-        run: echo "HOME=/home/runner" >> $GITHUB_ENV
+      - name: Clear npm cache
+        run: npm cache clean --force
 
       - name: Ensure AWS CLI is removed
         run: |
