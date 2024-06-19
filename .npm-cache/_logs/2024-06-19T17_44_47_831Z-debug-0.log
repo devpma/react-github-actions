@@ -1,0 +1,215 @@
+0 verbose cli /opt/homebrew/Cellar/node/22.3.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.8.1
+2 info using node@v22.3.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.npmrc
+5 silly config load:file:/Users/minahpark/.npmrc
+6 silly config load:file:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/npm-global/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install"
+9 verbose logfile logs-max:10 dir:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.npm-cache/_logs/2024-06-19T17_44_47_831Z-
+10 verbose logfile /Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.npm-cache/_logs/2024-06-19T17_44_47_831Z-debug-0.log
+11 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+12 silly logfile done cleaning log files
+13 silly idealTree buildDeps
+14 silly fetch manifest @babel/plugin-transform-class-properties@^7.18.6
+15 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-class-properties cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-class-properties 1332ms (cache revalidated)
+17 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-class-properties set size:40455 disposed:false
+18 silly fetch manifest @babel/core@^7.0.0-0
+19 silly packumentCache full:https://registry.npmjs.org/@babel%2fcore cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/@babel%2fcore 1245ms (cache revalidated)
+21 silly packumentCache full:https://registry.npmjs.org/@babel%2fcore set size:645913 disposed:false
+22 silly fetch manifest @babel/plugin-transform-nullish-coalescing-operator@^7.18.6
+23 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-nullish-coalescing-operator cache-miss
+24 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-nullish-coalescing-operator 45ms (cache revalidated)
+25 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-nullish-coalescing-operator set size:43709 disposed:false
+26 silly fetch manifest @babel/plugin-transform-numeric-separator@^7.18.6
+27 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-numeric-separator cache-miss
+28 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-numeric-separator 46ms (cache revalidated)
+29 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-numeric-separator set size:44179 disposed:false
+30 silly fetch manifest @babel/plugin-transform-optional-chaining@^7.21.0
+31 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-optional-chaining cache-miss
+32 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-optional-chaining 43ms (cache revalidated)
+33 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-optional-chaining set size:58401 disposed:false
+34 silly fetch manifest @babel/plugin-transform-private-methods@^7.18.6
+35 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-private-methods cache-miss
+36 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-private-methods 852ms (cache revalidated)
+37 silly packumentCache full:https://registry.npmjs.org/@babel%2fplugin-transform-private-methods set size:38911 disposed:false
+38 silly fetch manifest @eslint/config-array@^0.16.0
+39 silly packumentCache full:https://registry.npmjs.org/@eslint%2fconfig-array cache-miss
+40 http fetch GET 200 https://registry.npmjs.org/@eslint%2fconfig-array 1589ms (cache revalidated)
+41 silly packumentCache full:https://registry.npmjs.org/@eslint%2fconfig-array set size:22516 disposed:false
+42 silly fetch manifest @eslint/object-schema@^2.0.3
+43 silly packumentCache full:https://registry.npmjs.org/@eslint%2fobject-schema cache-miss
+44 http fetch GET 200 https://registry.npmjs.org/@eslint%2fobject-schema 1190ms (cache revalidated)
+45 silly packumentCache full:https://registry.npmjs.org/@eslint%2fobject-schema set size:13026 disposed:false
+46 silly fetch manifest @jridgewell/sourcemap-codec@^1.4.8
+47 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fsourcemap-codec cache-miss
+48 http fetch GET 200 https://registry.npmjs.org/@jridgewell%2fsourcemap-codec 56ms (cache revalidated)
+49 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fsourcemap-codec set size:34934 disposed:false
+50 silly fetch manifest @rollup/plugin-terser@^0.4.4
+51 silly packumentCache full:https://registry.npmjs.org/@rollup%2fplugin-terser cache-miss
+52 http fetch GET 200 https://registry.npmjs.org/@rollup%2fplugin-terser 1224ms (cache revalidated)
+53 silly packumentCache full:https://registry.npmjs.org/@rollup%2fplugin-terser set size:32893 disposed:false
+54 silly fetch manifest rollup@^2.0.0||^3.0.0||^4.0.0
+55 silly packumentCache full:https://registry.npmjs.org/rollup cache-miss
+56 http fetch GET 200 https://registry.npmjs.org/rollup 42ms (cache revalidated)
+57 silly packumentCache full:https://registry.npmjs.org/rollup set size:5277370 disposed:false
+58 silly fetch manifest aws-sdk@^2.1644.0
+59 silly packumentCache full:https://registry.npmjs.org/aws-sdk cache-miss
+60 http fetch GET 200 https://registry.npmjs.org/aws-sdk 258ms (cache revalidated)
+61 silly packumentCache full:https://registry.npmjs.org/aws-sdk set size:9972459 disposed:false
+62 silly fetch manifest cssstyle@^4.0.1
+63 silly packumentCache full:https://registry.npmjs.org/cssstyle cache-miss
+64 http fetch GET 200 https://registry.npmjs.org/cssstyle 34ms (cache revalidated)
+65 silly packumentCache full:https://registry.npmjs.org/cssstyle set size:103824 disposed:false
+66 silly fetch manifest glob@^9.0.0
+67 silly packumentCache full:https://registry.npmjs.org/glob cache-miss
+68 http fetch GET 200 https://registry.npmjs.org/glob 33ms (cache revalidated)
+69 silly packumentCache full:https://registry.npmjs.org/glob set size:418464 disposed:false
+70 silly fetch manifest lru-cache@^1.0.0
+71 silly packumentCache full:https://registry.npmjs.org/lru-cache cache-miss
+72 http fetch GET 200 https://registry.npmjs.org/lru-cache 31ms (cache revalidated)
+73 silly packumentCache full:https://registry.npmjs.org/lru-cache set size:694258 disposed:false
+74 silly fetch manifest rimraf@^4.0.0
+75 silly packumentCache full:https://registry.npmjs.org/rimraf cache-miss
+76 http fetch GET 200 https://registry.npmjs.org/rimraf 31ms (cache revalidated)
+77 silly packumentCache full:https://registry.npmjs.org/rimraf set size:187451 disposed:false
+78 silly fetch manifest svgo@^2.0.0
+79 silly packumentCache full:https://registry.npmjs.org/svgo cache-miss
+80 http fetch GET 200 https://registry.npmjs.org/svgo 32ms (cache revalidated)
+81 silly packumentCache full:https://registry.npmjs.org/svgo set size:263314 disposed:false
+82 silly fetch manifest web-vitals@^2.1.4
+83 silly packumentCache full:https://registry.npmjs.org/web-vitals cache-miss
+84 http fetch GET 200 https://registry.npmjs.org/web-vitals 664ms (cache revalidated)
+85 silly packumentCache full:https://registry.npmjs.org/web-vitals set size:1905962 disposed:false
+86 silly fetch manifest @babel/preset-env@^7.18.10
+87 silly packumentCache full:https://registry.npmjs.org/@babel%2fpreset-env cache-miss
+88 http fetch GET 200 https://registry.npmjs.org/@babel%2fpreset-env 49ms (cache revalidated)
+89 silly packumentCache full:https://registry.npmjs.org/@babel%2fpreset-env set size:960834 disposed:false
+90 silly fetch manifest @babel/preset-react@^7.18.6
+91 silly packumentCache full:https://registry.npmjs.org/@babel%2fpreset-react cache-miss
+92 http fetch GET 200 https://registry.npmjs.org/@babel%2fpreset-react 49ms (cache revalidated)
+93 silly packumentCache full:https://registry.npmjs.org/@babel%2fpreset-react set size:208395 disposed:false
+94 silly fetch manifest @testing-library/jest-dom@^6.4.6
+95 silly packumentCache full:https://registry.npmjs.org/@testing-library%2fjest-dom cache-miss
+96 http fetch GET 200 https://registry.npmjs.org/@testing-library%2fjest-dom 1282ms (cache revalidated)
+97 silly packumentCache full:https://registry.npmjs.org/@testing-library%2fjest-dom set size:420335 disposed:false
+98 silly fetch manifest @jest/globals@>= 28
+99 silly packumentCache full:https://registry.npmjs.org/@jest%2fglobals cache-miss
+100 http fetch GET 200 https://registry.npmjs.org/@jest%2fglobals 66ms (cache revalidated)
+101 silly packumentCache full:https://registry.npmjs.org/@jest%2fglobals set size:288197 disposed:false
+102 silly fetch manifest @types/bun@latest
+103 silly packumentCache full:https://registry.npmjs.org/@types%2fbun cache-miss
+104 http fetch GET 200 https://registry.npmjs.org/@types%2fbun 42ms (cache revalidated)
+105 silly packumentCache full:https://registry.npmjs.org/@types%2fbun set size:35399 disposed:false
+106 silly fetch manifest @types/jest@>= 28
+107 silly packumentCache full:https://registry.npmjs.org/@types%2fjest cache-miss
+108 http fetch GET 200 https://registry.npmjs.org/@types%2fjest 886ms (cache revalidated)
+109 silly packumentCache full:https://registry.npmjs.org/@types%2fjest set size:701405 disposed:false
+110 silly fetch manifest jest@^28.1.3
+111 silly packumentCache full:https://registry.npmjs.org/jest cache-miss
+112 http fetch GET 200 https://registry.npmjs.org/jest 44ms (cache revalidated)
+113 silly packumentCache full:https://registry.npmjs.org/jest set size:846664 disposed:false
+114 silly fetch manifest node-notifier@^8.0.1 || ^9.0.0 || ^10.0.0
+115 silly packumentCache full:https://registry.npmjs.org/node-notifier cache-miss
+116 http fetch GET 200 https://registry.npmjs.org/node-notifier 624ms (cache revalidated)
+117 silly packumentCache full:https://registry.npmjs.org/node-notifier set size:171533 disposed:false
+118 silly fetch manifest vitest@>= 0.32
+119 silly packumentCache full:https://registry.npmjs.org/vitest cache-miss
+120 http fetch GET 200 https://registry.npmjs.org/vitest 242ms (cache revalidated)
+121 silly packumentCache full:https://registry.npmjs.org/vitest set size:1557263 disposed:false
+122 silly fetch manifest @edge-runtime/vm@*
+123 silly packumentCache full:https://registry.npmjs.org/@edge-runtime%2fvm cache-miss
+124 http fetch GET 200 https://registry.npmjs.org/@edge-runtime%2fvm 1235ms (cache revalidated)
+125 silly packumentCache full:https://registry.npmjs.org/@edge-runtime%2fvm set size:286310 disposed:false
+126 silly fetch manifest @types/node@^18.0.0 || >=20.0.0
+127 silly packumentCache full:https://registry.npmjs.org/@types%2fnode cache-miss
+128 http fetch GET 200 https://registry.npmjs.org/@types%2fnode 66ms (cache revalidated)
+129 silly packumentCache full:https://registry.npmjs.org/@types%2fnode set size:8800143 disposed:false
+130 silly fetch manifest @vitest/browser@1.6.0
+131 silly packumentCache full:https://registry.npmjs.org/@vitest%2fbrowser cache-miss
+132 http fetch GET 200 https://registry.npmjs.org/@vitest%2fbrowser 1638ms (cache revalidated)
+133 silly packumentCache full:https://registry.npmjs.org/@vitest%2fbrowser set size:348144 disposed:false
+134 silly fetch manifest playwright@*
+135 silly packumentCache full:https://registry.npmjs.org/playwright cache-miss
+136 http fetch GET 200 https://registry.npmjs.org/playwright 687ms (cache revalidated)
+137 silly packumentCache full:https://registry.npmjs.org/playwright set size:42081777 disposed:false
+138 silly fetch manifest webdriverio@*
+139 silly packumentCache full:https://registry.npmjs.org/webdriverio cache-miss
+140 http fetch GET 200 https://registry.npmjs.org/webdriverio 661ms (cache revalidated)
+141 silly packumentCache full:https://registry.npmjs.org/webdriverio set size:2911545 disposed:false
+142 silly fetch manifest devtools@^8.14.0
+143 silly packumentCache full:https://registry.npmjs.org/devtools cache-miss
+144 http fetch GET 200 https://registry.npmjs.org/devtools 620ms (cache revalidated)
+145 silly packumentCache full:https://registry.npmjs.org/devtools set size:1562062 disposed:false
+146 silly fetch manifest @vitest/ui@1.6.0
+147 silly packumentCache full:https://registry.npmjs.org/@vitest%2fui cache-miss
+148 http fetch GET 200 https://registry.npmjs.org/@vitest%2fui 1611ms (cache revalidated)
+149 silly packumentCache full:https://registry.npmjs.org/@vitest%2fui set size:851013 disposed:false
+150 silly fetch manifest happy-dom@*
+151 silly packumentCache full:https://registry.npmjs.org/happy-dom cache-miss
+152 http fetch GET 200 https://registry.npmjs.org/happy-dom 650ms (cache revalidated)
+153 silly packumentCache full:https://registry.npmjs.org/happy-dom set size:1921084 disposed:false
+154 silly fetch manifest jsdom@*
+155 silly packumentCache full:https://registry.npmjs.org/jsdom cache-miss
+156 http fetch GET 200 https://registry.npmjs.org/jsdom 44ms (cache revalidated)
+157 silly packumentCache full:https://registry.npmjs.org/jsdom set size:972773 disposed:false
+158 silly fetch manifest canvas@^2.11.2
+159 silly packumentCache full:https://registry.npmjs.org/canvas cache-miss
+160 http fetch GET 200 https://registry.npmjs.org/canvas 256ms (cache revalidated)
+161 silly packumentCache full:https://registry.npmjs.org/canvas set size:509116 disposed:false
+162 silly fetch manifest @testing-library/react@^12.0.0
+163 silly packumentCache full:https://registry.npmjs.org/@testing-library%2freact cache-miss
+164 http fetch GET 200 https://registry.npmjs.org/@testing-library%2freact 5ms (cache hit)
+165 silly packumentCache full:https://registry.npmjs.org/@testing-library%2freact set size:2122228 disposed:false
+166 silly fetch manifest react@^18.3.1
+167 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+168 http fetch GET 200 https://registry.npmjs.org/react 12ms (cache hit)
+169 silly packumentCache full:https://registry.npmjs.org/react set size:6388360 disposed:false
+170 silly fetch manifest react@<18.0.0
+171 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+172 http fetch GET 200 https://registry.npmjs.org/react 9ms (cache hit)
+173 silly packumentCache full:https://registry.npmjs.org/react set size:6388360 disposed:false
+174 verbose stack Error: unable to resolve dependency tree
+174 verbose stack     at #failPeerConflict (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1360:25)
+174 verbose stack     at #loadPeerSet (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1326:33)
+174 verbose stack     at async #buildDepStep (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:901:11)
+174 verbose stack     at async Arborist.buildIdealTree (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:181:7)
+174 verbose stack     at async Promise.all (index 1)
+174 verbose stack     at async Arborist.reify (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:131:5)
+174 verbose stack     at async Install.exec (/opt/homebrew/lib/node_modules/npm/lib/commands/install.js:150:5)
+174 verbose stack     at async Npm.exec (/opt/homebrew/lib/node_modules/npm/lib/npm.js:207:9)
+174 verbose stack     at async module.exports (/opt/homebrew/lib/node_modules/npm/lib/cli/entry.js:74:5)
+175 error code ERESOLVE
+176 error ERESOLVE unable to resolve dependency tree
+177 error
+178 error While resolving: your-project-name@1.0.0
+178 error Found: react@18.3.1[2m[22m
+178 error [2mnode_modules/react[22m
+178 error   [34mdev[39m react@"^18.3.1" from the root project
+178 error
+178 error Could not resolve dependency:
+178 error [95mpeer[39m react@"<18.0.0" from @testing-library/react@12.1.5[2m[22m
+178 error [2mnode_modules/@testing-library/react[22m
+178 error   [34mdev[39m @testing-library/react@"^12.0.0" from the root project
+178 error
+178 error Fix the upstream dependency conflict, or retry
+178 error this command with --force or --legacy-peer-deps
+178 error to accept an incorrect (and potentially broken) dependency resolution.
+179 error
+179 error
+179 error For a full report see:
+179 error /Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.npm-cache/_logs/2024-06-19T17_44_47_831Z-eresolve-report.txt
+180 silly unfinished npm timer reify 1718819088089
+181 silly unfinished npm timer reify:loadTrees 1718819088094
+182 silly unfinished npm timer idealTree:buildDeps 1718819088101
+183 silly unfinished npm timer idealTree:#root 1718819088101
+184 verbose cwd /Users/minahpark/Desktop/ozcoding_practice/react-github-actions
+185 verbose os Darwin 23.3.0
+186 verbose node v22.3.0
+187 verbose npm  v10.8.1
+188 verbose exit 1
+189 verbose code 1
+190 error A complete log of this run can be found in: /Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.npm-cache/_logs/2024-06-19T17_44_47_831Z-debug-0.log
