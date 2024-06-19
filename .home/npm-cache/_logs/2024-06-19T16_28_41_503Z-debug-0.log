@@ -1,0 +1,41 @@
+0 verbose cli /opt/homebrew/Cellar/node/22.2.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.7.0
+2 info using node@v22.2.0
+3 silly config:load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config:load:file:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/.npmrc
+5 silly config:load:file:/opt/homebrew/etc/npmrc
+6 verbose title npm install npm@10.8.1
+7 verbose argv "install" "--global" "npm@10.8.1"
+8 verbose logfile logs-max:10 dir:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-cache/_logs/2024-06-19T16_28_41_503Z-
+9 verbose logfile /Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-cache/_logs/2024-06-19T16_28_41_503Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET 200 https://registry.npmjs.org/npm 17ms (cache hit)
+12 silly idealTree buildDeps
+13 silly fetch manifest npm@10.8.1
+14 http fetch GET 200 https://registry.npmjs.org/npm 1097ms (cache miss)
+15 silly placeDep ROOT npm@10.8.1 OK for:  want: 10.8.1
+16 silly reify mark retired [
+16 silly reify   '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/lib/node_modules/npm',
+16 silly reify   '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/bin/npm',
+16 silly reify   '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/bin/npx'
+16 silly reify ]
+17 silly reify moves {
+17 silly reify   '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/lib/node_modules/npm': '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/lib/node_modules/.npm-LksoLNws',
+17 silly reify   '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/bin/npm': '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/bin/.npm-LuljewqO',
+17 silly reify   '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/bin/npx': '/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global/bin/.npx-pL68ittC'
+17 silly reify }
+18 silly CHANGE node_modules/npm
+19 silly CHANGE node_modules/npm/node_modules/@npmcli/installed-package-contents
+20 silly CHANGE node_modules/npm/node_modules/@npmcli/arborist
+21 silly CHANGE node_modules/npm/node_modules/which
+22 silly CHANGE node_modules/npm/node_modules/semver
+23 silly CHANGE node_modules/npm/node_modules/qrcode-terminal
+24 silly CHANGE node_modules/npm/node_modules/pacote
+25 silly CHANGE node_modules/npm/node_modules/node-gyp
+26 silly CHANGE node_modules/npm/node_modules/nopt
+27 silly CHANGE node_modules/npm/node_modules/mkdirp
+28 silly CHANGE node_modules/npm/node_modules/glob
+29 silly CHANGE node_modules/npm/node_modules/cssesc
+30 silly CHANGE node_modules/npm/node_modules/cross-spawn/node_modules/which
+31 verbose exit 0
+32 info ok
