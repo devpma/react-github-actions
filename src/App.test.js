@@ -1,8 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom"; // 확장 임포트
 import App from "./App";
-import "./pure";
 
 test("renders learn react link", () => {
   const { getByText } = render(<App />);
