@@ -1,0 +1,70 @@
+0 verbose cli /opt/homebrew/Cellar/node/22.3.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.8.1
+2 info using node@v22.3.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/minahpark/.npmrc
+5 silly config load:file:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/npm-global/etc/npmrc
+6 verbose title npm install aws-cli
+7 verbose argv "install" "--global" "aws-cli"
+8 verbose logfile logs-max:10 dir:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/npm-cache/_logs/2024-06-20T10_43_18_336Z-
+9 verbose logfile /Users/minahpark/Desktop/ozcoding_practice/react-github-actions/npm-cache/_logs/2024-06-20T10_43_18_336Z-debug-0.log
+10 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+11 silly logfile done cleaning log files
+12 silly idealTree buildDeps
+13 silly fetch manifest aws-cli@*
+14 silly packumentCache full:https://registry.npmjs.org/aws-cli cache-miss
+15 http fetch GET 200 https://registry.npmjs.org/npm 247ms
+16 http fetch GET 200 https://registry.npmjs.org/aws-cli 740ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/aws-cli set size:undefined disposed:false
+18 silly placeDep ROOT aws-cli@0.0.2 OK for:  want: *
+19 silly fetch manifest operetta@0.0.5
+20 silly packumentCache full:https://registry.npmjs.org/operetta cache-miss
+21 silly fetch manifest aws-sdk@~2.0.0-rc13
+22 silly packumentCache full:https://registry.npmjs.org/aws-sdk cache-miss
+23 http fetch GET 200 https://registry.npmjs.org/aws-sdk 630ms (cache miss)
+24 silly packumentCache full:https://registry.npmjs.org/aws-sdk set size:undefined disposed:false
+25 http fetch GET 200 https://registry.npmjs.org/operetta 861ms (cache miss)
+26 silly packumentCache full:https://registry.npmjs.org/operetta set size:undefined disposed:false
+27 silly placeDep node_modules/aws-cli aws-sdk@2.0.31 OK for: aws-cli@0.0.2 want: ~2.0.0-rc13
+28 silly placeDep node_modules/aws-cli operetta@0.0.5 OK for: aws-cli@0.0.2 want: 0.0.5
+29 silly fetch manifest xml2js@0.2.6
+30 silly packumentCache full:https://registry.npmjs.org/xml2js cache-miss
+31 silly fetch manifest xmlbuilder@0.4.2
+32 silly packumentCache full:https://registry.npmjs.org/xmlbuilder cache-miss
+33 http fetch GET 200 https://registry.npmjs.org/xml2js 63ms (cache miss)
+34 silly packumentCache full:https://registry.npmjs.org/xml2js set size:undefined disposed:false
+35 http fetch GET 200 https://registry.npmjs.org/xmlbuilder 253ms (cache miss)
+36 silly packumentCache full:https://registry.npmjs.org/xmlbuilder set size:undefined disposed:false
+37 silly placeDep node_modules/aws-cli xml2js@0.2.6 OK for: aws-sdk@2.0.31 want: 0.2.6
+38 silly placeDep node_modules/aws-cli xmlbuilder@0.4.2 OK for: aws-sdk@2.0.31 want: 0.4.2
+39 silly fetch manifest sax@0.4.2
+40 silly packumentCache full:https://registry.npmjs.org/sax cache-miss
+41 http fetch GET 200 https://registry.npmjs.org/sax 68ms (cache miss)
+42 silly packumentCache full:https://registry.npmjs.org/sax set size:undefined disposed:false
+43 silly placeDep node_modules/aws-cli sax@0.4.2 OK for: xml2js@0.2.6 want: 0.4.2
+44 silly reify moves {}
+45 silly tarball no local data for sax@https://registry.npmjs.org/sax/-/sax-0.4.2.tgz. Extracting by manifest.
+46 silly tarball no local data for xmlbuilder@https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-0.4.2.tgz. Extracting by manifest.
+47 silly tarball no local data for operetta@https://registry.npmjs.org/operetta/-/operetta-0.0.5.tgz. Extracting by manifest.
+48 silly tarball no local data for aws-sdk@https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.0.31.tgz. Extracting by manifest.
+49 silly tarball no local data for aws-cli@https://registry.npmjs.org/aws-cli/-/aws-cli-0.0.2.tgz. Extracting by manifest.
+50 silly tarball no local data for xml2js@https://registry.npmjs.org/xml2js/-/xml2js-0.2.6.tgz. Extracting by manifest.
+51 http fetch GET 200 https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-0.4.2.tgz 46ms (cache miss)
+52 http fetch GET 200 https://registry.npmjs.org/sax/-/sax-0.4.2.tgz 79ms (cache miss)
+53 http fetch GET 200 https://registry.npmjs.org/xml2js/-/xml2js-0.2.6.tgz 114ms (cache miss)
+54 http fetch GET 200 https://registry.npmjs.org/aws-cli/-/aws-cli-0.0.2.tgz 156ms (cache miss)
+55 warn deprecated aws-cli@0.0.2: Recommend using the official aws cli tools for python
+56 http fetch GET 200 https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.0.31.tgz 190ms (cache miss)
+57 http fetch GET 200 https://registry.npmjs.org/operetta/-/operetta-0.0.5.tgz 376ms (cache miss)
+58 silly ADD node_modules/aws-cli
+59 silly ADD node_modules/aws-cli/node_modules/sax
+60 silly ADD node_modules/aws-cli/node_modules/xmlbuilder
+61 silly ADD node_modules/aws-cli/node_modules/xml2js
+62 silly ADD node_modules/aws-cli/node_modules/operetta
+63 silly ADD node_modules/aws-cli/node_modules/aws-sdk
+64 verbose cwd /Users/minahpark/Desktop/ozcoding_practice/react-github-actions
+65 verbose os Darwin 23.3.0
+66 verbose node v22.3.0
+67 verbose npm  v10.8.1
+68 verbose exit 0
+69 info ok
