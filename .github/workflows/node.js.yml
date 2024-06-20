@@ -21,4 +21,4 @@ jobs:
 
       # AWS 리소스를 배포하거나 상호작용하는 단계 추가
       - name: Deploy to S3
-        run: aws s3 sync ./my-website s3://my-bucket --region ap-northeast-2
+        run: aws s3 sync ./build s3://my-bucket --region ap-northeast-2
