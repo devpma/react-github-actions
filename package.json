@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "jest",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build"
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.18.10",
