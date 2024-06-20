@@ -10,9 +10,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up AWS region environment variable
+        run: echo "AWS_REGION=ap-northeast-2" >> $GITHUB_ENV
+
       - name: Configure AWS credentials
-        env:
-          AWS_REGION: ap-northeast-2 # 사용할 AWS 리전을 여기에 지정
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
