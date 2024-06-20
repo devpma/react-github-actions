@@ -1,0 +1,14 @@
+0 verbose cli /opt/homebrew/Cellar/node/22.2.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.7.0
+2 info using node@v22.2.0
+3 silly config:load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config:load:file:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/.npmrc
+5 silly config:load:file:/opt/homebrew/etc/npmrc
+6 verbose title npm config set prefix /Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global
+7 verbose argv "config" "set" "prefix" "/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global" "--global"
+8 verbose logfile logs-max:10 dir:/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-cache/_logs/2024-06-19T16_28_10_136Z-
+9 verbose logfile /Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-cache/_logs/2024-06-19T16_28_10_136Z-debug-0.log
+10 info config set "prefix" "/Users/minahpark/Desktop/ozcoding_practice/react-github-actions/.home/npm-global"
+11 silly logfile done cleaning log files
+12 verbose exit 0
+13 info ok
