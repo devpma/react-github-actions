@@ -1,87 +1,25 @@
-name: Node.js CI
+name: Deploy to S3
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
 
-      - name: Clear npm cache
-        run: npm cache clean --force
-
-      - name: Set npm registry
-        run: npm config set registry https://registry.npmjs.org/
-
-      - name: Create npm global directory
-        run: mkdir -p ~/.npm-global
-
-      - name: Set npm global prefix
-        run: npm config set prefix '~/.npm-global'
-
-      - name: Update PATH
-        run: echo 'export PATH=$HOME/.npm-global/bin:$PATH' >> $GITHUB_ENV
-
-      - name: Ensure AWS CLI is removed
+      - name: Sync S3 bucket
         run: |
-          if command -v aws &> /dev/null; then
-            sudo rm -rf /usr/local/aws-cli
-            sudo rm -f /usr/local/bin/aws
-            sudo rm -rf /usr/local/aws-cli/v2/current
-          fi
-
-      - name: Install or Update AWS CLI
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip -o -qq awscliv2.zip
-          sudo ./aws/install --update
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm-global
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps --force
-
-      - name: Install testing library
-        run: npm install --save-dev @testing-library/react @testing-library/dom @testing-library/jest-dom jest --force
-
-      - name: Set environment variable
-        run: echo "NODE_ENV=test" >> $GITHUB_ENV
-
-      - name: Run tests
-        run: npm test
-
-      - name: Build the project
-        run: npm run build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
-
-      - name: List build directory contents
-        run: ls -la ./build
-
-      - name: Deploy to S3
-        run: aws s3 sync ./build s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --delete
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "ap-northeast-2"
+          aws s3 sync ./build s3://react-action-test-bucket-1 --delete
